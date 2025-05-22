@@ -1,8 +1,14 @@
 import "./styles/style.css";
 
-const HoverLinks = ({ text, cursor }: { text: string; cursor?: boolean }) => {
+interface HoverLinksProps {
+  text: string;
+  cursor?: boolean;
+  "data-target"?: string;
+}
+
+const HoverLinks = ({ text, cursor, "data-target": target }: HoverLinksProps) => {
   return (
-    <div className="hover-link" data-cursor={!cursor && `disable`}>
+    <div className="hover-link" data-cursor={!cursor && `disable`} data-target={target}>
       <div className="hover-in">
         {text} <div>{text}</div>
       </div>

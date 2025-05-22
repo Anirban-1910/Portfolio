@@ -5,44 +5,67 @@
   place-items: center;
   position: relative;
   opacity: 1;
-  height: auto;
+  min-height: 70vh;
   width: var(--cWidth);
   margin: auto;
+  padding: 3rem 1.5rem;
 }
 .about-me {
-  padding: 50px 0px;
-  padding-bottom: 0;
-  width: 500px;
+  padding: 2.5rem 0;
+  width: 600px;
   max-width: calc(100% - 15px);
 }
-.about-me h3 {
-  font-size: 25px;
+.title {
+  font-size: 28px;
   text-transform: uppercase;
   letter-spacing: 7px;
   font-weight: 400;
   color: var(--accentColor);
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
 }
-
-.about-me p {
-  font-size: 33px;
-  font-weight: 600;
-  line-height: 36px;
-  letter-spacing: 1px;
+.para {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+  color: #eae5ec;
+  opacity: 0;
+  transform: translateY(30px);
+  margin: 0;
+  padding-right: 1.5rem;
 }
-
 @media only screen and (min-width: 600px) {
   .about-section {
     justify-content: center;
+    padding: 4rem 2.5rem;
+  }
+  
+  .para {
+    font-size: 17px;
+    line-height: 1.9;
   }
 }
 @media only screen and (min-width: 768px) {
+  .about-section {
+    padding: 5rem 3rem;
+    min-height: 80vh;
+  }
   .about-me {
-    width: 500px;
+    width: 650px;
     max-width: calc(100% - 70px);
     transform: translateY(0%);
   }
-  .about-section {
-    opacity: 1;
+  
+  .para {
+    font-size: 18px;
+    line-height: 2;
+    padding-right: 2.5rem;
+  }
+  .title {
+    font-size: 32px;
+    margin-bottom: 2.5rem;
   }
 }
 @media only screen and (min-width: 1025px) {
@@ -50,22 +73,35 @@
     width: var(--cWidth);
     justify-content: right;
     max-width: 1920px;
-    height: var(--vh);
-    padding: 0px;
-    opacity: 1;
+    min-height: 90vh;
+    padding: 6rem 4rem;
   }
   .about-me {
-    padding: 0px;
-    width: 50%;
+    padding: 0;
+    width: 55%;
   }
-  .about-me p {
-    font-size: 1.9vw;
-    line-height: 2.3vw;
+  
+  .para {
+    font-size: 1.3vw;
+    line-height: 1.9;
+    max-width: 750px;
+    padding-right: 4rem;
+  }
+  .title {
+    font-size: 2.5vw;
+    margin-bottom: 3rem;
   }
 }
 @media only screen and (min-width: 1950px) {
-  .about-me p {
-    font-size: 2.5rem;
-    line-height: 2.7rem;
+  .about-section {
+    padding: 7rem 5rem;
+  }
+  .para {
+    font-size: 1.5rem;
+    line-height: 2;
+    max-width: 900px;
+  }
+  .title {
+    font-size: 3rem;
   }
 }

@@ -3,15 +3,37 @@
   max-width: var(--cMaxWidth);
   width: var(--cWidth);
   justify-content: space-between;
+  align-items: center;
   padding: 20px 0px;
-  margin-bottom: -100px;
   box-sizing: border-box;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
   top: 0;
   z-index: 9999;
+  transition: all 0.3s ease;
 }
+
+.header.scrolled {
+  background: rgba(17, 17, 17, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 15px 20px;
+  border-radius: 15px;
+  margin: 10px auto;
+  width: calc(var(--cWidth) - 40px);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
 .header ul {
   font-size: 12px;
   display: flex;
@@ -31,53 +53,67 @@
   cursor: pointer;
 }
 .navbar-connect {
-  position: absolute;
-  display: none;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   font-size: 15px;
   letter-spacing: 1px;
   font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.navbar-connect:hover {
+  color: #64ffda;
 }
 .navbar-title {
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.2px;
+  color: #fff;
 }
-@media only screen and (min-width: 500px) {
+@media only screen and (max-width: 768px) {
+  .navbar-connect {
+    display: none;
+  }
+  
+  .nav-links {
+    gap: 1rem;
+  }
+  
+  .header.scrolled {
+    padding: 10px 15px;
+  }
+}
+@media only screen and (min-width: 769px) {
   .header {
-    padding: 20px 0px;
+    padding: 25px 0px;
   }
-  .header ul {
-    flex-direction: row;
-    align-items: center;
-    font-size: 14px;
+  
+  .nav-links {
+    gap: 3rem;
   }
-  .header ul li {
-    color: #eae5ec;
-  }
+  
   .navbar-title {
     font-size: 16px;
   }
-}
-@media only screen and (min-width: 900px) {
+  
   .navbar-connect {
-    display: block;
+    font-size: 16px;
   }
 }
 @media only screen and (min-width: 1200px) {
   .header {
     padding: 35px 0px;
   }
-  .header ul {
-    column-gap: 80px;
-    font-size: 16px;
+  
+  .nav-links {
+    gap: 4rem;
   }
-  .navbar-connect {
-    font-size: 16px;
-  }
+  
   .navbar-title {
     font-size: 18px;
+  }
+  
+  .navbar-connect {
+    font-size: 16px;
   }
 }

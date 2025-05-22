@@ -21,9 +21,7 @@ const Career = () => {
               <h3>20XX</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+            Hi, I’m Anirban Basak — a passionate UI/UX designer with a background in Computer Science. I enjoy crafting clean, intuitive, and user-focused digital experiences. I believe great design is not just how it looks, but how it works. Currently exploring the world of product design, I’m always learning and pushing boundaries to create meaningful solutions that connect with users.
             </p>
           </div>
           <div className="career-info-box">
