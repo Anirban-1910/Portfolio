@@ -8,49 +8,38 @@ function customSplitText(element: Element, options: { type: string }) {
   const text = element.textContent || "";
   element.textContent = "";
   
-  const words = text.split(" ").map(word => {
+  const types = options.type.split(",");
+  const shouldSplitWords = types.includes("words");
+  const shouldSplitChars = types.includes("chars");
+  
+  const words = shouldSplitWords ? text.split(" ").map(word => {
     const wordSpan = document.createElement("span");
     wordSpan.className = "split-word";
     wordSpan.style.display = "inline-block";
     wordSpan.textContent = word + " ";
     return wordSpan;
-  });
+  }) : [];
 
-  const lines: HTMLElement[] = [];
-  let currentLine: HTMLElement[] = [];
-  let currentLineWidth = 0;
-  const containerWidth = element.clientWidth;
-
-  words.forEach(word => {
-    element.appendChild(word);
-    const wordWidth = word.offsetWidth;
-    
-    if (currentLineWidth + wordWidth > containerWidth) {
-      const lineDiv = document.createElement("div");
-      lineDiv.className = "split-line";
-      currentLine.forEach(w => lineDiv.appendChild(w));
-      lines.push(lineDiv);
-      currentLine = [word];
-      currentLineWidth = wordWidth;
-    } else {
-      currentLine.push(word);
-      currentLineWidth += wordWidth;
-    }
-  });
-
-  if (currentLine.length > 0) {
-    const lineDiv = document.createElement("div");
-    lineDiv.className = "split-line";
-    currentLine.forEach(w => lineDiv.appendChild(w));
-    lines.push(lineDiv);
-  }
+  const chars = shouldSplitChars ? text.split("").map(char => {
+    const charSpan = document.createElement("span");
+    charSpan.className = "split-char";
+    charSpan.style.display = "inline-block";
+    charSpan.textContent = char;
+    return charSpan;
+  }) : [];
 
   element.textContent = "";
-  lines.forEach(line => element.appendChild(line));
+  if (shouldSplitWords) {
+    words.forEach(word => element.appendChild(word));
+  } else if (shouldSplitChars) {
+    chars.forEach(char => element.appendChild(char));
+  } else {
+    element.textContent = text;
+  }
 
   return {
-    lines,
-    words
+    lines: [],
+    words: shouldSplitWords ? words : chars
   };
 }
 

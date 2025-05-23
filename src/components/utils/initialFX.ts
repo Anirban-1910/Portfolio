@@ -5,17 +5,21 @@ function customSplitText(selector: string, options: { type: string }) {
   const elements = document.querySelectorAll(selector);
   const results: { chars: HTMLElement[], lines: HTMLElement[] }[] = [];
 
+  const types = options.type.split(",");
+  const shouldSplitChars = types.includes("chars");
+  const shouldSplitLines = types.includes("lines");
+
   elements.forEach(element => {
     const text = element.textContent || "";
     element.textContent = "";
     
-    const chars = text.split("").map(char => {
+    const chars = shouldSplitChars ? text.split("").map(char => {
       const charSpan = document.createElement("span");
       charSpan.className = "split-char";
       charSpan.style.display = "inline-block";
       charSpan.textContent = char;
       return charSpan;
-    });
+    }) : [];
 
     const words = text.split(" ").map(word => {
       const wordSpan = document.createElement("span");
@@ -26,36 +30,42 @@ function customSplitText(selector: string, options: { type: string }) {
     });
 
     const lines: HTMLElement[] = [];
-    let currentLine: HTMLElement[] = [];
-    let currentLineWidth = 0;
-    const containerWidth = element.clientWidth;
+    if (shouldSplitLines) {
+      let currentLine: HTMLElement[] = [];
+      let currentLineWidth = 0;
+      const containerWidth = element.clientWidth;
 
-    words.forEach(word => {
-      element.appendChild(word);
-      const wordWidth = word.offsetWidth;
-      
-      if (currentLineWidth + wordWidth > containerWidth) {
+      words.forEach(word => {
+        element.appendChild(word);
+        const wordWidth = word.offsetWidth;
+        
+        if (currentLineWidth + wordWidth > containerWidth) {
+          const lineDiv = document.createElement("div");
+          lineDiv.className = "split-line";
+          currentLine.forEach(w => lineDiv.appendChild(w));
+          lines.push(lineDiv);
+          currentLine = [word];
+          currentLineWidth = wordWidth;
+        } else {
+          currentLine.push(word);
+          currentLineWidth += wordWidth;
+        }
+      });
+
+      if (currentLine.length > 0) {
         const lineDiv = document.createElement("div");
         lineDiv.className = "split-line";
         currentLine.forEach(w => lineDiv.appendChild(w));
         lines.push(lineDiv);
-        currentLine = [word];
-        currentLineWidth = wordWidth;
-      } else {
-        currentLine.push(word);
-        currentLineWidth += wordWidth;
       }
-    });
-
-    if (currentLine.length > 0) {
-      const lineDiv = document.createElement("div");
-      lineDiv.className = "split-line";
-      currentLine.forEach(w => lineDiv.appendChild(w));
-      lines.push(lineDiv);
     }
 
     element.textContent = "";
-    lines.forEach(line => element.appendChild(line));
+    if (shouldSplitLines) {
+      lines.forEach(line => element.appendChild(line));
+    } else {
+      words.forEach(word => element.appendChild(word));
+    }
 
     results.push({ chars, lines });
   });

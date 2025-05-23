@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import "./styles/Navbar.css";
 
@@ -76,7 +75,6 @@ const Navbar = () => {
   return (
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
       <div className="navbar-title">ANIRBAN</div>
-
       <div style={{ position: 'relative' }}>
         <div 
           className="navbar-connect" 
