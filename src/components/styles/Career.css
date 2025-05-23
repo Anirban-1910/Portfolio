@@ -53,18 +53,24 @@
   gap: 50px;
 }
 .career-info h3 {
-  font-size: 48px;
+  font-size: 30px;
   margin: 0;
   font-weight: 500;
-  line-height: 45px;
+  line-height: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .career-info h4 {
-  font-size: 33px;
-  line-height: 30px;
-  letter-spacing: 0.8px;
+  font-size: 40px;
+  line-height: 40px;
+  letter-spacing: 0.6px;
   font-weight: 500;
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .career-info h5 {
   font-weight: 400;
@@ -136,15 +142,16 @@
     line-height: 50px;
   }
   .career-info h4 {
-    font-size: 22px;
-    line-height: 24px;
-    width: 180px;
+    font-size: 20px;
+    line-height: 20px;
+    width: auto;
   }
   .career-info h5 {
     font-size: 17px;
   }
   .career-info h3 {
-    font-size: 40px;
+    font-size: 32px;
+    line-height: 32px;
   }
   .career-info-box p {
     font-size: 14px;
@@ -152,10 +159,6 @@
   .career-info-in {
     width: 45%;
     gap: 20px;
-  }
-
-  .career-info-box p {
-    width: 45%;
   }
 }
 @media only screen and (max-width: 1025px) {
@@ -199,7 +202,12 @@
     gap: 0px;
   }
   .career-info h3 {
-    font-size: 33px;
+    font-size: 28px;
+    line-height: 28px;
+  }
+  .career-info h4 {
+    font-size: 18px;
+    line-height: 18px;
   }
   .career-info-in,
   .career-info-box p {

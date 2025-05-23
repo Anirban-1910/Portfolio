@@ -15,41 +15,37 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Diploma in CST</h4>
+                <h5>BPC Institute of Technology</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>2019-2022</h3>
             </div>
             <p>
-            Hi, I’m Anirban Basak — a passionate UI/UX designer with a background in Computer Science. I enjoy crafting clean, intuitive, and user-focused digital experiences. I believe great design is not just how it looks, but how it works. Currently exploring the world of product design, I’m always learning and pushing boundaries to create meaningful solutions that connect with users.
+              I completed my Diploma in Computer Science and Engineering at BPC Institute of Technology in 2022.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>B.Tech in CSE</h4>
+                <h5>RCC Institute of Technology</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>2022-2025</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              I am currently pursuing my B.Tech in Computer Science and Engineering at RCC Institute of Technology.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>UI/UX Designer Intern</h4>
+                <h5>ALT-PI</h5>
               </div>
               <h3>NOW</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              I am working as a UI/UX Designer Intern at ALT-PI. Designing clean, user-friendly interfaces and prototypes while collaborating with the team to improve user experience.
             </p>
           </div>
         </div>

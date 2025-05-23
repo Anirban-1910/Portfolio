@@ -49,9 +49,10 @@ const About = () => {
     <div className="about-section" id="about" ref={aboutRef}>
       <div className="about-me">
         <h3 className="title" ref={titleRef}>About Me</h3>
-        <p className="para" ref={paraRef}>
-          I'm Anirban Basak, a UI/UX designer and web developer with a Computer Science background. I enjoy building clean, user-friendly digital experiences that are both functional and visually appealing.
-        </p>
+        <div className="para" ref={paraRef}>
+          <p>I'm Anirban Basak, a UI/UX designer and web developer with a Computer Science background.</p>
+          <p>I enjoy building clean, user-friendly digital experiences that are both functional and visually appealing.</p>
+        </div>
       </div>
     </div>
   );

@@ -8,6 +8,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showCopied, setShowCopied] = useState(false);
+
+  const handleConnect = () => {
+    const email = 'anirbanbasak5121@gmail.com';
+    navigator.clipboard.writeText(email).then(() => {
+      setShowCopied(true);
+      setTimeout(() => setShowCopied(false), 2000); // Hide after 2 seconds
+    });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,14 +76,39 @@ const Navbar = () => {
   return (
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
       <div className="navbar-title">ANIRBAN</div>
-      <nav className="navbar">
-        <div className="nav-links">
-          <HoverLinks text="ABOUT" data-target="about" />
-          <HoverLinks text="WORK" data-target="work" />
-          <HoverLinks text="CONTACT" data-target="contact" />
+
+      <div style={{ position: 'relative' }}>
+        <div 
+          className="navbar-connect" 
+          onClick={handleConnect}
+          style={{ cursor: 'pointer' }}
+        >
+          Let's Connect
         </div>
-      </nav>
-      <div className="navbar-connect">Let's Connect</div>
+        {showCopied && (
+          <div
+            style={{
+              position: 'absolute',
+              top: '100%',
+              right: '0',
+              backgroundColor: 'rgba(127, 64, 255, 0.2)',
+              backdropFilter: 'blur(5px)',
+              border: '1px solid #7f40ff',
+              color: '#fff',
+              padding: '8px 12px',
+              borderRadius: '4px',
+              fontSize: '14px',
+              marginTop: '8px',
+              whiteSpace: 'nowrap',
+              zIndex: 1000,
+              boxShadow: '0 0 15px rgba(127, 64, 255, 0.3)',
+              animation: 'fadeInOut 2s ease-in-out'
+            }}
+          >
+            Email copied to clipboard!
+          </div>
+        )}
+      </div>
     </header>
   );
 };

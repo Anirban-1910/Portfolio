@@ -26,15 +26,22 @@
   transform: translateY(30px);
 }
 .para {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.para p {
   font-size: 16px;
   font-weight: 300;
   line-height: 1.8;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
+  word-spacing: 2px;
   color: #eae5ec;
-  opacity: 0;
-  transform: translateY(30px);
   margin: 0;
   padding-right: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.para p:last-child {
+  margin-bottom: 0;
 }
 @media only screen and (min-width: 600px) {
   .about-section {
@@ -42,9 +49,10 @@
     padding: 4rem 2.5rem;
   }
   
-  .para {
+  .para p {
     font-size: 17px;
-    line-height: 1.9;
+    line-height: 2;
+    word-spacing: 3px;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -58,10 +66,12 @@
     transform: translateY(0%);
   }
   
-  .para {
+  .para p {
     font-size: 18px;
     line-height: 2;
     padding-right: 2.5rem;
+    word-spacing: 4px;
+    margin-bottom: 2rem;
   }
   .title {
     font-size: 32px;
@@ -81,9 +91,9 @@
     width: 55%;
   }
   
-  .para {
+  .para p {
     font-size: 1.3vw;
-    line-height: 1.9;
+    line-height: 2;
     max-width: 750px;
     padding-right: 4rem;
   }
@@ -96,7 +106,7 @@
   .about-section {
     padding: 7rem 5rem;
   }
-  .para {
+  .para p {
     font-size: 1.5rem;
     line-height: 2;
     max-width: 900px;
